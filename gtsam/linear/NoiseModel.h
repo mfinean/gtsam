@@ -51,6 +51,7 @@ namespace gtsam {
     class GTSAM_EXPORT Base {
 
     public:
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       typedef boost::shared_ptr<Base> shared_ptr;
 
     protected:
@@ -58,7 +59,6 @@ namespace gtsam {
       size_t dim_;
 
     public:
-
       /// primary constructor @param dim is the dimension of the model
       Base(size_t dim = 1):dim_(dim) {}
       virtual ~Base() {}
@@ -164,7 +164,7 @@ namespace gtsam {
       }
 
     public:
-
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       typedef boost::shared_ptr<Gaussian> shared_ptr;
 
       virtual ~Gaussian() {}
@@ -285,7 +285,7 @@ namespace gtsam {
       Diagonal(const Vector& sigmas);
 
     public:
-
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       typedef boost::shared_ptr<Diagonal> shared_ptr;
 
       virtual ~Diagonal() {}
@@ -391,7 +391,7 @@ namespace gtsam {
       Constrained(const Vector& mu, const Vector& sigmas);
 
     public:
-
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       typedef boost::shared_ptr<Constrained> shared_ptr;
 
       virtual ~Constrained() {}
@@ -528,7 +528,7 @@ namespace gtsam {
       Isotropic() : Diagonal(Vector1::Constant(1.0)),sigma_(1.0),invsigma_(1.0) {}
 
     public:
-
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       virtual ~Isotropic() {}
 
       typedef boost::shared_ptr<Isotropic> shared_ptr;
@@ -590,7 +590,7 @@ namespace gtsam {
       Unit(size_t dim=1): Isotropic(dim,1.0) {}
 
     public:
-
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       typedef boost::shared_ptr<Unit> shared_ptr;
 
       virtual ~Unit() {}
@@ -650,6 +650,7 @@ namespace gtsam {
 
       class GTSAM_EXPORT Base {
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         enum ReweightScheme { Scalar, Block };
         typedef boost::shared_ptr<Base> shared_ptr;
 
@@ -722,6 +723,7 @@ namespace gtsam {
       /// Null class is not robust so is a Gaussian ?
       class GTSAM_EXPORT Null : public Base {
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<Null> shared_ptr;
 
         Null(const ReweightScheme reweight = Block) : Base(reweight) {}
@@ -746,6 +748,7 @@ namespace gtsam {
         double c_;
 
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<Fair> shared_ptr;
 
         Fair(double c = 1.3998, const ReweightScheme reweight = Block);
@@ -772,6 +775,7 @@ namespace gtsam {
         double k_;
 
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<Huber> shared_ptr;
 
         Huber(double k = 1.345, const ReweightScheme reweight = Block);
@@ -802,6 +806,7 @@ namespace gtsam {
         double k_, ksquared_;
 
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<Cauchy> shared_ptr;
 
         Cauchy(double k = 0.1, const ReweightScheme reweight = Block);
@@ -828,6 +833,7 @@ namespace gtsam {
         double c_, csquared_;
 
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<Tukey> shared_ptr;
 
         Tukey(double c = 4.6851, const ReweightScheme reweight = Block);
@@ -858,6 +864,7 @@ namespace gtsam {
         double c_, csquared_;
 
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<Welsh> shared_ptr;
 
         Welsh(double c = 2.9846, const ReweightScheme reweight = Block);
@@ -887,6 +894,7 @@ namespace gtsam {
       /// the generalized Geman-McClure from (Agarwal15phd).
       class GTSAM_EXPORT GemanMcClure : public Base {
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<GemanMcClure> shared_ptr;
 
         GemanMcClure(double c = 1.0, const ReweightScheme reweight = Block);
@@ -916,6 +924,7 @@ namespace gtsam {
       /// forcing the output weight s <= 1.0, DCS is similar to Geman-McClure.
       class GTSAM_EXPORT DCS : public Base {
       public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
         typedef boost::shared_ptr<DCS> shared_ptr;
 
         DCS(double c = 1.0, const ReweightScheme reweight = Block);
@@ -948,6 +957,7 @@ namespace gtsam {
           double k_;
 
       public:
+          EIGEN_MAKE_ALIGNED_OPERATOR_NEW
           typedef boost::shared_ptr<L2WithDeadZone> shared_ptr;
 
           L2WithDeadZone(double k, const ReweightScheme reweight = Block);
@@ -998,6 +1008,7 @@ namespace gtsam {
      */
     class GTSAM_EXPORT Robust : public Base {
     public:
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       typedef boost::shared_ptr<Robust> shared_ptr;
 
     protected:
