@@ -111,6 +111,7 @@ Gaussian::shared_ptr Gaussian::Information(const Matrix& information, bool smart
 /* ************************************************************************* */
 Gaussian::shared_ptr Gaussian::Covariance(const Matrix& covariance,
     bool smart) {
+  // std::cout << "Forming Covariance" << std::endl;
   size_t m = covariance.rows(), n = covariance.cols();
   if (m != n)
     throw invalid_argument("Gaussian::Covariance: covariance not square");

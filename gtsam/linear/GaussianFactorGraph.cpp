@@ -256,7 +256,7 @@ namespace gtsam {
   VectorValues GaussianFactorGraph::optimize(OptionalOrdering ordering, const Eliminate& function) const
   {
     gttic(GaussianFactorGraph_optimize);
-    return BaseEliminateable::eliminateMultifrontal(ordering, function)->optimize();
+    return BaseEliminateable::eliminateMultifrontal(ordering, function)->optimize(); // Returns a Bayes Tree and then optimizes it
   }
 
   /* ************************************************************************* */
